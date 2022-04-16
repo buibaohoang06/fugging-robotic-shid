@@ -10,7 +10,6 @@ sfr.load_encoding_images("faces/")
 
 
 while True:
-    time.sleep(15)
     ret, frame = cap.read()
     face_locations, face_name = sfr.detect_known_faces(frame)
     for face_loc, name in zip(face_locations, face_name):
@@ -19,7 +18,6 @@ while True:
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 2)
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1)
-    time.sleep(3)
     if len(face_name) == 0:
         status = False
     else:
